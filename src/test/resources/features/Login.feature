@@ -1,6 +1,6 @@
 Feature: Login Funtionality
 
-  Scenario: Login with valid credentials
+  Scenario Outline: Login with valid credentials
     Given User navigates to login page
     When User enters valid email "solo12@gmail.com" into email field
     And User enters valid password "admin123" into password field
