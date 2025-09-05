@@ -42,7 +42,15 @@ public class Login {
 
 	}
 
-	@When("User enters valid email {string} into email field")
+	
+	/*
+	 * The annotation uses a regex: ^User enters valid email (.+) into email field$
+
+		The (.+) captures any text and passes it to the method parameter valemail.
+
+		This regex matches the step in the feature file where you have something like:
+	  */
+	@When("^User enters valid email (.+) into email field$")
 	public void the_user_enter_valid_credentials_email(String valemail) {
 		
 		//Using LoginPage class
@@ -51,7 +59,7 @@ public class Login {
 		//driver.findElement(By.id("input-email")).sendKeys(valemail);
 	}
 
-	@And("User enters valid password {string} into password field")
+	@And("^User enters valid password (.+) into password field$")
 	public void the_user_enter_valid_credentials_password(String valpwd) {
 		//lp = new LoginPage(driver);
 		lp.enterPassword(valpwd);
