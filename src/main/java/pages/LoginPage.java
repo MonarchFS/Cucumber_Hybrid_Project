@@ -6,11 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.ElementUtils;
+
 public class LoginPage {
 	WebDriver driver;
+	private ElementUtils eleutils;
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		eleutils = new ElementUtils(driver);
 	}
 	
 	//@FindBy(id="input-email")
@@ -26,26 +30,34 @@ public class LoginPage {
 	private By emailField = By.id("input-email");
 	
 	public void enterEmailAddress(String valemail) {
-		driver.findElement(emailField).sendKeys(valemail);
+		//By method used as here we using By field
+		eleutils.typeTextIntoElementBy(emailField, valemail, 0);
+		//driver.findElement(emailField).sendKeys(valemail);
 	}
 	
 	@FindBy(id="input-password")
 	private WebElement passField;
 	public void enterPassword(String valpwd) {
-		passField.sendKeys(valpwd);
+		eleutils.typeTextIntoElement(passField, valpwd, 20);
+		//passField.sendKeys(valpwd);
 	}
 	
 	@FindBy(xpath="//input[@value='Login']")
 	private WebElement loginBttn;
+	
 	public AccountPage clickOnLoginBttn() {
-		loginBttn.click();
+		eleutils.clickOnElement(loginBttn, 20);
+		//loginBttn.click();
 		return new AccountPage(driver);
 	}
 	
+	
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement warnMessage;
+	
 	public String getWarningMessage() {
-		return warnMessage.getText();
+		return eleutils.getTextFromElement(warnMessage, 20);
+		//return warnMessage.getText();
 	}
 
 }

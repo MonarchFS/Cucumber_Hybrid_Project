@@ -3,6 +3,7 @@ package utility;
 import java.time.Duration;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,31 @@ public class ElementUtils {
 	}
 	
 	//type text element
+	
+	
+	/*    ******************************** IMPORTANT****************************************
+	 * Here we are passing WebElement element which is for FindBy element, if we need for By locator use below
+	 * 
+	 * */
+	
+	public void typeTextIntoElementBy(By locator, String textToBeTyped, long durationInSeconds) {
+	    WebElement webElement = waitForElementBy(locator, durationInSeconds);
+	    webElement.click();
+	    webElement.clear();
+	    webElement.sendKeys(textToBeTyped);
+	}
+	
+	
+	public WebElement waitForElementBy(By locator, long durationInSeconds) {
+	    WebElement webElement = null;
+	    try {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationInSeconds));
+	        webElement = wait.until(ExpectedConditions.elementToBeClickable(locator));
+	    } catch (Throwable e) {
+	        e.printStackTrace();
+	    }
+	    return webElement;
+	}
 	
 	public void typeTextIntoElement(WebElement element, String textToBeTyped, long durationInSeconds) {
 		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationInSeconds));
@@ -129,6 +155,11 @@ public class ElementUtils {
 		JavascriptExecutor jse = ((JavascriptExecutor)driver);
 		jse.executeScript("arguments[0].value='"+textToBeTyped+"'", webElement);
 		
+	}
+	
+	public String getTextFromElement(WebElement element, long durationOfSeconds) {
+		WebElement webElement = waitForElement(element, durationOfSeconds);
+		return webElement.getText();
 	}
 	
 	
