@@ -162,5 +162,17 @@ public class ElementUtils {
 		return webElement.getText();
 	}
 	
+	public boolean displayStatusOfElement(WebElement element, long durationOfInSeconds) {
+		try {
+			WebElement webElement = waitForVisibilityOfElement(element, durationOfInSeconds);
+			return webElement.isDisplayed();
+		} catch (Throwable e) {
+			
+			return false;
+		}
+		
+		
+	}
+	
 	
 }
