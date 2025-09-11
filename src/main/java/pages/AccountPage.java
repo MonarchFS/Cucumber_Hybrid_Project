@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,11 +19,13 @@ public class AccountPage {
 		eleutils = new ElementUtils(driver);
 	}
 	
-	@FindBy(xpath="//span[text()='My Account']")
-	private WebElement editAccInfo;
+//	@FindBy(xpath="//span[text()='My Account']")//dontusebczavoidstaleelementexception
+//	private WebElement editAccInfo;
+	private By editAccInfo = By.xpath("//span[text()='My Account']");
+	
 	public boolean displayStausMyAccount() {
 		//return editAccInfo.isDisplayed();
-		return eleutils.displayStatusOfElement(editAccInfo, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return eleutils.displayStatusOfElementBy(editAccInfo, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 
 }

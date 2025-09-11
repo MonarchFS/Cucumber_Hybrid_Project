@@ -171,6 +171,28 @@ public class ElementUtils {
 			return false;
 		}
 		
+	}
+		
+		
+		public boolean displayStatusOfElementBy(By  locator, long durationOfInSeconds) {
+			
+			WebElement element=null;
+//			try {
+//				WebElement webElement = waitForVisibilityOfElement(element, durationOfInSeconds);
+//				return webElement.isDisplayed();
+//			} catch (Throwable e) {
+//				
+//				return false;
+//			}
+			
+			try {
+	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationOfInSeconds));
+	             element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	            return element.isDisplayed();
+	        } catch (Exception e) {
+	            return false;
+	        }
+		
 		
 	}
 	
