@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.CommonUtils;
 import utility.ElementUtils;
 
 public class HomePage {
@@ -43,29 +44,29 @@ public class HomePage {
 	//so below method will be used by other class to indirectly access above element
 	public void clickOnMyAccount() {
 		//myAccountDropMenu.click();
-		eleutils.clickOnElement(myAccountDropMenu, 15);
+		eleutils.clickOnElement(myAccountDropMenu, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	public LoginPage clickOnLogin() {
 		//loginOption.click();
-		eleutils.clickOnElement(loginOption, 20);
+		eleutils.clickOnElement(loginOption, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		return new LoginPage(driver);
 	}
 	
 	public RegisterPage selectRegisterOption() {
 		//registerOption.click();
-		eleutils.clickOnElement(registerOption, 15);
+		eleutils.clickOnElement(registerOption, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		return new RegisterPage(driver);
 	}
 	
 	public void enterProductIntoSearchBox(String ProductText) {
 		//searchBoxField.sendKeys(ProductText);
-		eleutils.typeTextIntoElement(searchBoxField, ProductText, 20);
+		eleutils.typeTextIntoElement(searchBoxField, ProductText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	public SearchResultPage clickOnSearchButton() {
 		//searchButton.click();
-		eleutils.clickOnElement(searchButton, 20);
+		eleutils.clickOnElement(searchButton, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		return new SearchResultPage(driver);
 	}
 	

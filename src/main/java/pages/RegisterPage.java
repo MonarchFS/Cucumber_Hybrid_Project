@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.CommonUtils;
 import utility.ElementUtils;
 
 public class RegisterPage {
@@ -23,7 +24,7 @@ public class RegisterPage {
 	
 	public void enterFirstName(String firstNameText) {
 		//firstNameField.sendKeys(firstNameText);
-		eleutils.typeTextIntoElement(firstNameField, firstNameText, 30);
+		eleutils.typeTextIntoElement(firstNameField, firstNameText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -32,7 +33,7 @@ public class RegisterPage {
 	
 	public void enterLastName(String lastNameText) {
 		//lastNameField.sendKeys(lastNameText);
-		eleutils.typeTextIntoElement(lastNameField, lastNameText, 30);
+		eleutils.typeTextIntoElement(lastNameField, lastNameText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	@FindBy(id="input-email")
@@ -40,7 +41,7 @@ public class RegisterPage {
 	
 	public void enterEmail(String emailText) {
 		//emailField.sendKeys(emailText);
-		eleutils.typeTextIntoElement(emailField, emailText, 30);
+		eleutils.typeTextIntoElement(emailField, emailText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -49,7 +50,7 @@ public class RegisterPage {
 	
 	public void enterTelephone(String teleText) {
 		//telephoneField.sendKeys(teleText);
-		eleutils.typeTextIntoElement(telephoneField, teleText, 30);
+		eleutils.typeTextIntoElement(telephoneField, teleText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -58,14 +59,14 @@ public class RegisterPage {
 	
 	public void enterPass(String passText) {
 		//passwordField.sendKeys(passText);
-		eleutils.typeTextIntoElement(passwordField, passText, 30);
+		eleutils.typeTextIntoElement(passwordField, passText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	@FindBy(id="input-confirm")
 	private WebElement passwordConfirmFiled;
 	public void enterConfirmPass(String passText) {
 		//passwordConfirmFiled.sendKeys(passText);
-		eleutils.typeTextIntoElement(passwordConfirmFiled, passText, 30);
+		eleutils.typeTextIntoElement(passwordConfirmFiled, passText, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	@FindBy(xpath="//input[@name='agree']")
@@ -73,14 +74,14 @@ public class RegisterPage {
 	
 	public void selectPrivacyPolicy() {
 		//privacyPolicyOption.click();
-		eleutils.clickOnElement(privacyPolicyOption, 30);
+		eleutils.clickOnElement(privacyPolicyOption, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	@FindBy(xpath="//input[@value='Continue']")
 	private WebElement continueButton;
 	
 	public AccountSuccessPage continueOption() {
-		eleutils.clickOnElement(continueButton, 30);
+		eleutils.clickOnElement(continueButton, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		//continueButton.click();
 		return new AccountSuccessPage(driver);
 	}
@@ -90,21 +91,21 @@ public class RegisterPage {
 	
 	public void yesNewsLetter() {
 		//yesNewsLetterOption.click();
-		eleutils.clickOnElement(yesNewsLetterOption, 30);
+		eleutils.clickOnElement(yesNewsLetterOption, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	@FindBy(xpath="//div[contains(@class,'alert-dismissible')]")
 	private WebElement warningMessage;
 	public String getWarningMessageText() {
 		//return warningMessage.getText();
-		return eleutils.getTextFromElement(warningMessage, 30);
+		return eleutils.getTextFromElement(warningMessage, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	@FindBy(xpath="//input[@id='input-firstname']/following-sibling::div")
 	private WebElement firstNameWarning;
 	public String getfirstNameWarningMessageText() {
 		//return firstNameWarning.getText();
-		return eleutils.getTextFromElement(firstNameWarning, 30);
+		return eleutils.getTextFromElement(firstNameWarning, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -112,7 +113,7 @@ public class RegisterPage {
 	private WebElement lastNameWarning;
 	public String getlastNameWarningMessageText() {
 		//return lastNameWarning.getText();
-		return eleutils.getTextFromElement(lastNameWarning, 30);
+		return eleutils.getTextFromElement(lastNameWarning, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -120,7 +121,7 @@ public class RegisterPage {
 	private WebElement emailWarning;
 	public String getemailWarningMessageText() {
 		//return emailWarning.getText();
-		return eleutils.getTextFromElement(emailWarning, 30);
+		return eleutils.getTextFromElement(emailWarning, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -128,7 +129,7 @@ public class RegisterPage {
 	private WebElement telephoneWarning;
 	public String gettelephoneWarningMessageText() {
 		//return telephoneWarning.getText();
-		return eleutils.getTextFromElement(telephoneWarning, 30);
+		return eleutils.getTextFromElement(telephoneWarning, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 	
@@ -136,7 +137,7 @@ public class RegisterPage {
 	private WebElement passwordWarning;
 	public String getpasswordWarningMessageText() {
 		//return passwordWarning.getText();
-		return eleutils.getTextFromElement(passwordWarning, 30);
+		return eleutils.getTextFromElement(passwordWarning, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 	}
 	
 

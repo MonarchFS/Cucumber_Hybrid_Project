@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.CommonUtils;
 import utility.ElementUtils;
 
 public class LoginPage {
@@ -31,14 +32,14 @@ public class LoginPage {
 	
 	public void enterEmailAddress(String valemail) {
 		//By method used as here we using By field
-		eleutils.typeTextIntoElementBy(emailField, valemail, 0);
+		eleutils.typeTextIntoElementBy(emailField, valemail, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		//driver.findElement(emailField).sendKeys(valemail);
 	}
 	
 	@FindBy(id="input-password")
 	private WebElement passField;
 	public void enterPassword(String valpwd) {
-		eleutils.typeTextIntoElement(passField, valpwd, 20);
+		eleutils.typeTextIntoElement(passField, valpwd, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		//passField.sendKeys(valpwd);
 	}
 	
@@ -46,7 +47,7 @@ public class LoginPage {
 	private WebElement loginBttn;
 	
 	public AccountPage clickOnLoginBttn() {
-		eleutils.clickOnElement(loginBttn, 20);
+		eleutils.clickOnElement(loginBttn, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		//loginBttn.click();
 		return new AccountPage(driver);
 	}
@@ -56,7 +57,7 @@ public class LoginPage {
 	private WebElement warnMessage;
 	
 	public String getWarningMessage() {
-		return eleutils.getTextFromElement(warnMessage, 20);
+		return eleutils.getTextFromElement(warnMessage, CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		//return warnMessage.getText();
 	}
 
